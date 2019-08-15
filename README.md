@@ -192,5 +192,28 @@ img {
 }
 ```
 
+Save your CSS file and open your project in your browser again. It should now look like this:
+![](https://res.cloudinary.com/briandanger/image/upload/v1565908321/Screen_Shot_2019-08-15_at_6.31.52_PM_d0lyca.png)
 
 
+#### JavaScript
+Let's add the following:
+
+```
+const apiKey = "d052c3d8e8754c82a60381562ee88879";
+const articleSection = document.querySelector(".articles")
+const button = document.querySelector("button")
+
+button.addEventListener('click', async () => {
+  articleSection.innerHTML = ""
+  let source = document.querySelector("select").value
+  let data = await axios.get(`https://newsapi.org/v2/top-headlines?apiKey=${apiKey}&sources=${source}`)
+
+
+  let articles = data.data.articles
+
+  for (i = 0; i <= articles.length; i++) {
+    articleSection.innerHTML += `<div class='article'><div class='article-image'><img src=${articles[i].urlToImage}></div><div class='article-description'><a href=${articles[i].url}><h3>${articles[i].title}</h3></a><p>${articles[i].content}</p></div></div>`
+  }
+})
+```
