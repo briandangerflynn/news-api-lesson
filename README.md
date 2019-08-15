@@ -101,3 +101,96 @@ We're going to navigate to the desktop by typing `cd Desktop` and hitting `enter
 Here, we're going to make a folder (aka directory) for our news app project  with `mkdir news_app`. You should see this folder appear on your desktop. Then, we're going to move into that folder with `cd news_app`. 
 
 Once inside our news app, we're going to make our three primary files by typing `touch index.html style.css script.js` and hitting `enter`. 
+
+You can shrink your terminal for now. There's a fun reason we used this complicated way of creating a new project... :)
+
+Open VS Code and open your news_api project. It should look like this: 
+
+![](https://res.cloudinary.com/briandanger/image/upload/v1565907352/Screen_Shot_2019-08-15_at_6.15.30_PM_m5zgwh.png)
+
+Let's start with `index.html`
+
+#### HTML
+Html provides the content of a page: the text, images, videos, links, etc. Without any CSS, this content will have no style whatsoever. Without any JavaScript, the functionality will be extremely limited.
+
+Copy and paste the following code into your HTML. I'll explain it line by line:
+
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>News App</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer src="js/main.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>Choose Your News Source</h1>
+      <select>
+        <option value="abc-news">ABC</option>
+        <option value="cbs-news">CBS</option>
+        <option value="business-insider">Business Insider</option>
+        <option value="espn">ESPN</option>
+        <option value="buzzfeed">Buzzfeed</option>
+      </select>
+      <button type="button" name="button">Select</button>
+    </header>
+
+    <div class="articles">
+
+    </div>
+  </body>
+</html>
+```
+
+Save your file and open your code in the browser. It should look like this:
+![](https://res.cloudinary.com/briandanger/image/upload/v1565907617/Screen_Shot_2019-08-15_at_6.20.07_PM_buuosk.png)
+
+#### CSS
+CSS provides the styles for our apps. Let's sharpen our app up a bit with the following code:
+
+```
+body {
+  margin:0;
+}
+
+header {
+  font-family: arial;
+  text-align: center;
+  background-color: #000033;
+  color: white;
+  height: 100px;
+  padding-top: 50px;
+}
+
+h1, h3, p {
+  margin: 0;
+}
+
+.article {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.article-image {
+  width: 25%;
+}
+
+.article-description {
+  width: 74%;
+  padding-left: 1%;
+}
+
+a {
+  color: #000033;
+}
+
+img {
+  width: 100%;
+}
+```
+
+
+
