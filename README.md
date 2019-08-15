@@ -197,23 +197,29 @@ Save your CSS file and open your project in your browser again. It should now lo
 
 
 #### JavaScript
+JavaScript allows us to add functionality to our app based off our our user's interactions. In particular, it lets us do HTTP requests and manipulate the data rendered on the screen. It's freakin' cool.
+
 Let's add the following:
 
+(I'm going to try to get us to all code this together, but I'll Slack it out if we're short on time)
+
+#### Deploying our Site
+Let's host our site online with [Surge.sh](https://surge.sh/). In order to use Surge, we first have to install Node.js & Node Package Manager (aka NPM). Let's do that [here](https://www.npmjs.com/get-npm).
+
+Once you've downloaded Node and NPM, you can use Surge.
+
+Re-open your terminal and make sure you're still inside your news_app project directory. Type `npm install --global surge`. Then, all you have to do is type `surge`.
+
+You'll see text like:
 ```
-const apiKey = "d052c3d8e8754c82a60381562ee88879";
-const articleSection = document.querySelector(".articles")
-const button = document.querySelector("button")
+   Running as bdflynny@gmail.com (Student)
 
-button.addEventListener('click', async () => {
-  articleSection.innerHTML = ""
-  let source = document.querySelector("select").value
-  let data = await axios.get(`https://newsapi.org/v2/top-headlines?apiKey=${apiKey}&sources=${source}`)
-
-
-  let articles = data.data.articles
-
-  for (i = 0; i <= articles.length; i++) {
-    articleSection.innerHTML += `<div class='article'><div class='article-image'><img src=${articles[i].urlToImage}></div><div class='article-description'><a href=${articles[i].url}><h3>${articles[i].title}</h3></a><p>${articles[i].content}</p></div></div>`
-  }
-})
+        project: /Users/brianflynn/Desktop/news_app/
 ```
+
+Just type `enter`. Then, you'll see a line like `domain: six-income.surge.sh`
+You can edit the first part of this domain to be anything you want, like `brians-news-app.surge.sh`. Then hit enter.
+
+You can now visit your app at this website!
+
+Awesome!
